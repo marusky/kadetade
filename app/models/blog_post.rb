@@ -22,6 +22,19 @@ class BlogPost < ApplicationRecord
 
   mount_uploader :feature_image, FeatureImageUploader
 
+  searchkick 
+
+  scope :search_import, -> { includes(:tags) }
+
+  def search_data
+    {
+      name_tagged: "#{name} #{tags.map(&:name).join(" ")}",
+      name: name,
+      id: id,
+      slug: slug
+    }
+  end
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 

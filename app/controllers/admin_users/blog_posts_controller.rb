@@ -6,8 +6,16 @@ module AdminUsers
     # GET /blog_posts
     # GET /blog_posts.json
     def index
-      @blog_posts = current_admin_user.blog_posts
+      search = params[:search].present? ? params[:search] : nil
+      @blog_posts = if search
+        current_admin_user.blog_posts.search(params[:search])
+      else
+        current_admin_user.blog_posts
+      end
+
     end
+
+    #TODO ako to funguje s tym search params, ked to nedavam do nijakej databazy?
 
     # GET /blog_posts/1
     # GET /blog_posts/1.json

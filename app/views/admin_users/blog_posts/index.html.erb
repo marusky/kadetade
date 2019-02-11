@@ -5,6 +5,14 @@
 <h1>Blog Posts</h1>
 <%= link_to 'New Blog Post', new_admin_users_blog_post_path, class: 'btn btn-lg btn-success' %><br><br> <!--  FIXME 2x br tag -->
 
+<%# OPTIMIZE novy sposob formu tu treba dat %>
+<%= form_tag admin_users_blog_posts_path, method: :get do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", name: nil %> 
+	</p>
+<% end %>
+
 <table class="table table-striped">
     <tr>
       <th colspan="5">Title</th>
