@@ -1,0 +1,46 @@
+<%= form_with(model: [:admin_users, @blog_post], local: true) do |form| %>
+  <% if blog_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(blog_post.errors.count, "error") %> prohibited this blog_post from being saved:</h2>
+
+      <ul>
+      <% blog_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <diw class="col-lg-4">
+
+      <div class="form-group">
+        <%= form.label 'Post title:' %>
+        <%= form.text_field :name, class: 'form-control', placeholder: 'Write the perfect title!' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label 'Image url:' %>
+        <%= form.file_field :feature_image, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label 'Your awesome tags!' %>
+        <%= form.text_field :tag_list, value: blog_post.tag_list.to_s, class: 'form-control', placeholder: 'T-A-G-S-!' %>
+      </div> 
+
+    </diw>
+    <div class="col-lg-7 offset-lg-1">
+      <div class="form-group">
+        <%= form.label :content %>
+        <%= form.text_area :content, class: 'form-control', placeholder: 'Oh! That\'s what this amazing post is all about!' %>
+      </div>
+      
+    </div>
+  </div>   
+
+  <div class="actions">
+    <%= form.submit 'Save it, nail it.', class: 'btn btn-primary' %>
+  </div>
+
+<% end %>

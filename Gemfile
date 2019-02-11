@@ -38,7 +38,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'friendly_id', '~> 5.2.4'
-
+gem 'devise'
+gem 'acts-as-taggable-on', '~> 6.0'
+gem 'will_paginate', '~> 3.1.0'
+gem 'annotate'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 
 
 

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<% provide :blog_active, "active" %>
 
 <p>
   <strong>Name:</strong>
@@ -7,7 +7,7 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @blog_post.content %>
+  <%= @blog_post.content.html_safe %>
 </p>
 
 <p>
@@ -20,5 +20,4 @@
   <%= @blog_post.slug %>
 </p>
 
-<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
 <%= link_to 'Back', blog_posts_path %>

@@ -1,0 +1,27 @@
+<% provide :admin_active, "active" %>
+
+<%= link_to 'Edit', edit_admin_users_blog_post_path(@blog_post) %> | 
+<%= link_to 'Destroy', admin_users_blog_post_path(@blog_post), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @blog_post.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @blog_post.content.html_safe %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= raw @blog_post.tags.map { |t| link_to t.name, blog_posts_path(tag: t)}.join(', ') %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @blog_post.slug %>
+</p>
+
+<%= link_to 'Edit', edit_admin_users_blog_post_path(@blog_post) %> |
+<%= link_to 'Back', admin_users_blog_posts_path %>

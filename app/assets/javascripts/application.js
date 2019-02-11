@@ -17,3 +17,18 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function function_name(argument) {
+	// body...
+	tinymce.remove();
+	tinymce.init({ 
+		selector:'textarea#blog_post_content',
+		plugins: "codesample image media link",
+		toolbar: "undo redo | styleselect | bold italic link | codesample image media",
+		link_class_list: [
+		    {title: 'None', value: ''},
+		    {title: 'Dog', value: 'dog'},
+		    {title: 'Cat', value: 'cat'}
+		  ]
+	 });
+})

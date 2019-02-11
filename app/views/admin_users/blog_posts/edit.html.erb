@@ -1,0 +1,11 @@
+<% provide :admin_active, "active" %>
+
+
+<h1>Upravujem <span class="font-weight-light"><%= @blog_post.name %></span></h1>
+
+
+
+<%= render 'form', blog_post: @blog_post %>
+
+<%= link_to 'Show', admin_users_blog_posts_path(@blog_post) %>
+<%= link_to 'Back', admin_users_blog_posts_path %>

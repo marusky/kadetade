@@ -1,0 +1,15 @@
+      <tr>
+      	<td><%= link_to blog_post.name, admin_users_blog_post_path(blog_post)%></td>
+        <td><%= blog_post.display_day_published %></td>
+        <% if blog_post.published? %>
+          <td><%= link_to 'Unpublish', unpublish_admin_users_blog_post_path(blog_post), method: :put, class: 'btn btn-sm btn-primary' %></td>
+        <% else %>
+          <td><%= link_to 'Publish', publish_admin_users_blog_post_path(blog_post), method: :put, class: 'btn btn-sm btn-success' %></td>
+        <% end %>
+        
+
+
+        <td><%= link_to 'Edit', edit_admin_users_blog_post_path(blog_post), class: 'btn btn-sm btn-warning' %></td>
+        <td><%= link_to 'Delete', admin_users_blog_post_path(blog_post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+
+      </tr> 

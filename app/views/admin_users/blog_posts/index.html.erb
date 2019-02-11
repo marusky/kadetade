@@ -1,0 +1,16 @@
+<% provide :admin_active, "active" %>
+
+
+
+<h1>Blog Posts</h1>
+<%= link_to 'New Blog Post', new_admin_users_blog_post_path, class: 'btn btn-lg btn-success' %><br><br> <!--  FIXME 2x br tag -->
+
+<table class="table table-striped">
+    <tr>
+      <th colspan="5">Title</th>
+    </tr>
+      <%= render @blog_posts %>
+  </table>  
+</div>
+
+

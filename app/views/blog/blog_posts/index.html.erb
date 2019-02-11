@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<% provide :blog_active, "active" %>
 
 <h1>Blog Posts</h1>
 
@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Content</th>
+      <th>tags</th>
       <th>Feature image</th>
       <th>Slug</th>
       <th colspan="3"></th>
@@ -17,12 +17,10 @@
     <% @blog_posts.each do |blog_post| %>
       <tr>
         <td><%= blog_post.name %></td>
-        <td><%= blog_post.content %></td>
-        <td><%= blog_post.feature_image %></td>
+        <td><%= raw blog_post.tags.map { |t| link_to t.name, blog_posts_path(tag: t.name)}.join(', ') %></td>
+        <td><%= image_tag blog_post.feature_image.url if blog_post.feature_image? %></td>
         <td><%= blog_post.slug %></td>
         <td><%= link_to 'Show', blog_post %></td>
-        <td><%= link_to 'Edit', edit_blog_post_path(blog_post) %></td>
-        <td><%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Blog Post', new_blog_post_path %>
+<%= will_paginate @blog_posts, container: false %>
+
